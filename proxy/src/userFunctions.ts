@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   endPointServiceUserCheckRole,
   endPointServiceUserInfo,
+  endPointServiceUserInscription,
   endPointServiceUserLogin,
 } from "./types";
 
@@ -25,6 +26,22 @@ export const connection = (username: string, password: string) => {
       });
   });
 };
+
+export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string) => {
+  return new Promise((resolve) => {
+    axios
+      .post(
+        endPointServiceUserInscription,
+        {email, fisrtName, lastName, phone, country},
+      )
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  })
+}
 
 export const checkUserInfo = (token: string) => {
   return new Promise((resolve) => {

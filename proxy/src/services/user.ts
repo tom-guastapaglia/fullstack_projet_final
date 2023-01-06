@@ -9,8 +9,9 @@ import {
   urlApiUser,
   urlApiUserInfo,
   urlApiUserLogin,
+  urlApiUserInscription,
 } from "../types";
-import { checkRole, checkUserInfo, connection } from "../userFunctions";
+import { checkRole, checkUserInfo, connection, inscription } from "../userFunctions";
 
 const initUrls = (app: Express) => {
   app.get(urlApiUser, (_, res) => {
@@ -25,6 +26,13 @@ const initUrls = (app: Express) => {
       res.send(data);
     });
   });
+
+  app.post(urlApiUserInscription, (req, res) => {
+    const body: { email: string; fisrtName: string; lastName: string; phone: string; country: string; } = req.body;
+    inscription(body.email, body.fisrtName, body.lastName, body.phone, body.country).then((data) => {
+      res.send(data);
+    })
+  })
 
   app.get(urlApiUserInfo, (req, res) => {
     const token = req.header("Authorization");
