@@ -1,0 +1,5 @@
+src/**/*.css
+src/**/*.css.map
+node_modules/
+example/
+dist/

@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0px;
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  min-height: 75vh;
+  height: auto;
+  width: auto;
+}
+
+main, body  {
+  height: auto;
+  min-height: 75vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  position: relative;
+  width: auto;
+  height: 144px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+
+header {
+  background-color: white;
+  margin-bottom: 2px;
+  margin-top: -2px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+header .my-lib-ui-button {
+  width: 33%;
+  margin-right: 5%;
+}
+
+
+h1 {
+  /* H1 mobile */
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 22px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  /* Principale/Rouge */
+
+  color: #C00000;
+}
+
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+footer a {
+  text-decoration-line: underline;
+}
+
+footer p {
+  text-align: center;
+}
+
+.hero-component {
+  position: relative;
+  height: 460px;
+  margin-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../public/voitures.png");
+}
+
+.hero-text-delta {
+  color: #C00000;
+  font-size: 1em;
+  font-weight: 200;
+  padding-right: 0.3em;
+}
+
+.hero-box {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 10%;
+  height: 60%;
+  padding: 5%;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 22px;
+  border-bottom: 1px solid #C00000;
+}
+
+.bloc-inscription {
+  margin: 5%;
+}
+
+.form-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.login-page {
+  background-color: #F5F5F5;
+}
+
+.container-login {
+  background-color: white;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+.container-login h2 {
+  color: #C00000;
+}
+
+.login-page main {
+  margin: 1em;
+}
+
+.login-page main a {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+
+/* When the browser is at least 600px and above */
+@media screen and (min-width: 600px) {
+  .hero-component {
+    background-image: url("../public/voitures2.jpg");
+  }
+  .hero-box {
+    height: auto;
+    left: 20%;
+    right: 20%;
+    padding: 2%;
+  }
+  .bloc-inscription {
+    margin-left: 22%;
+    margin-right: 22%;
+  }
+
+  .grid-form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .form-select {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+
+  .bloc-inscription > .my-lib-ui-button {
+    width: 50%;
+    margin-left: 50%;
+  }
+
+  .my-lib-ui-form-field {
+    margin: 1em;
+  }
+
+  .login-page > main {
+    margin: 25%;
+  }
+
+  header .my-lib-ui-button{
+    width: 20%;
+  }
+
+}
+
+

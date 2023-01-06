@@ -1,0 +1,74 @@
+input::placeholder {
+  color: transparent;
+}
+
+.my-lib-ui-form-field {
+  padding: 5%;
+  margin-top: 1.5em;
+  height: 60px;
+  background-color: #F2F2F2;
+  display: flex;
+  flex-direction: column;
+
+  .my-lib-ui-label {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .my-lib-ui-input {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  .my-lib-ui-select {
+
+  }
+
+  .my-lib-ui-label-select {
+    color: black;
+  }
+
+  .my-lib-ui-select {
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+}
+
+.my-lib-ui-form-field-radio{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+
+  .my-lib-ui-label {
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  input[type="radio"] {
+    background-color: black;
+  }
+}
+
+
+.my-lib-ui-form-field-checkbox{
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  input[type="checkbox"] {
+    border: 2px solid #000000;
+    border-radius: 1px;
+  }
+  .my-lib-ui-checkbox {
+
+  }
+}
