@@ -10,6 +10,7 @@ import {
   urlApiUserInfo,
   urlApiUserLogin,
   urlApiUserInscription,
+  urlApiUsersInfo,
 } from "../types";
 import { checkRole, checkUserInfo, connection, inscription } from "../userFunctions";
 
@@ -32,6 +33,14 @@ const initUrls = (app: Express) => {
     inscription(body.email, body.fisrtName, body.lastName, body.phone, body.country).then((data) => {
       res.send(data);
     })
+  })
+
+  app.get(urlApiUsersInfo, (req, res) => {
+    const body: { id: string; } = req.body;
+    const token = req.header("Authorization");
+    /* checkUsersInfo(token).then((data) => {
+      res.send(data);
+    }) */
   })
 
   app.get(urlApiUserInfo, (req, res) => {

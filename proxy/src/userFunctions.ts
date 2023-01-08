@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   endPointServiceUserCheckRole,
   endPointServiceUserInfo,
+  endPointServiceUsersInfo,
   endPointServiceUserInscription,
   endPointServiceUserLogin,
 } from "./types";
