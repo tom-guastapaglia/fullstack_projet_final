@@ -71,7 +71,7 @@ const initUrls = (app: Express) => {
   //   const futureUsers = entityManager.getRepository(FutureUser).findAll();
   //   res.send(futureUsers);
   // });
-  
+
 
   app.get(urlApiUsersInfo, (req, res) => {
     const body: { id: string; } = req.body;
@@ -88,12 +88,12 @@ const initUrls = (app: Express) => {
 
   app.get(urlApiAdminInfo, (req, res) => {
     axios
-      .get(endPointServiceUserAdminInfo, {
-        headers: {
-          Authorization: req.header("Authorization"),
-        },
-      })
-      .then((onfulfilled) => res.send(onfulfilled.data));
+        .get(endPointServiceUserAdminInfo, {
+          headers: {
+            Authorization: req.header("Authorization"),
+          },
+        })
+        .then((onfulfilled) => res.send(onfulfilled.data));
   });
 
   app.post(urlApiCheckRole, (req, res) => {
