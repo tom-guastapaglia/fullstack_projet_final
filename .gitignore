@@ -1,3 +1,6 @@
+*.js
 .idea/
 .DS_Store
-*.js
+proxy/node_modules
+nginx/.DS_Store
+user/.DS_Store
