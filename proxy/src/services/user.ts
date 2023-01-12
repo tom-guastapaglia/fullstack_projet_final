@@ -9,9 +9,10 @@ import {
   urlApiUser,
   urlApiUserInfo,
   urlApiUserLogin,
+  urlApiFutureUser,
   urlApiUserInscription,
-  urlApiUsersInfo,
-  urlApiUserInscriptionValide
+  urlApiUserInscriptionValide,
+  urlApiUsersInfo
 } from "../types";
 import { checkRole, checkUserInfo, connection, inscription } from "../userFunctions";
 
