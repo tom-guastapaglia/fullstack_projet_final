@@ -34,4 +34,14 @@ class UserApiController extends AbstractController
         }
         return $this->json(in_array($role, $user->getRoles()));
     }
+
+    #[Route('/inscription', name: 'app_user_api_inscription', methods: "POST")]
+    public function inscription(Request $request){
+        $user = $this->getUser();
+
+        return $this->json($user);
+
+    }
+
+
 }
