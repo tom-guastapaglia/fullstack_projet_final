@@ -78,7 +78,7 @@ export const inscription = (email: string, fisrtName: string, lastName: string, 
    })
 }
 
-export const validation = (id, token) => {
+export const validation = (id: string, token: string) => {
    return new Promise((resolve) => {
       axios
          .post(
