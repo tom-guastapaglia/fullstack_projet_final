@@ -14,7 +14,7 @@ export const urlApiUsersInfo = `${urlApiUser}/users`;
 /** Service User */
 export const urlServerServiceUser = "http://nginx/api";
 export const endPointServiceUserHello = `${urlServerServiceUser}/hello`;
-export const endPointServiceUserLogin = `${urlServerServiceUser}/login`;
+export const endPointServiceUserLogin = `${urlServerServiceUser}/login_check`;
 export const endPointServiceUserInfo = `${urlServerServiceUser}/user`;
 export const endPointServiceUserAdminInfo = `${urlServerServiceUser}/admin`;
 export const endPointServiceUserCheckRole = `${endPointServiceUserInfo}/check_role`;
