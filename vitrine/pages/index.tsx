@@ -8,7 +8,7 @@ import HeroComponent from "../components/HeroComponent";
 import InscriptionComponent from "../components/InscriptionComponent";
 
 const Home: NextPage = () => {
-  return (
+    return (
     <div>
       <HeadComponent />
       <HeaderComponent />
