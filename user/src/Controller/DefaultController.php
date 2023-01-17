@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\FutureUser;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +15,12 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 #[Route("/")]
 class DefaultController extends AbstractController
 {
+
+    /**
+     * @param EntityManagerInterface $manager
+     */
+    public function __construct(private readonly EntityManagerInterface $manager) {}
+
     #[Route('/')]
     public function index(): Response
     {
@@ -27,10 +36,29 @@ class DefaultController extends AbstractController
     }
 
     #[Route('api/inscription', name: 'app_user_api_inscription', methods: "POST")]
-    public function inscription(Request $request){
+    public function inscription(Request $request): Response{
+        $data = json_decode($request->getContent(), true);
+        $futureUser = new FutureUser();
+        $futureUser->setNom($data["lastName"])
+            ->setPrenom($data["lastName"])
+            ->setTel($data["phone"])
+            ->setNationalite($data["country"])
+            ->setEmail($data["email"])
+            ->setInscriptionValidee(false);
 
-        return $this->json($request->getContent());
+        $manager = $this->manager;
+        $manager->persist($futureUser);
+        $manager->flush();
 
+        return $this->json($futureUser);
+
+    }
+
+
+    #[Route('api/future-users', name: 'app_user_api_future_users', methods: "GET")]
+    public function getFutureUsers(Request $request): Response {
+        $futureUsers = $this->manager->getRepository(FutureUser::class)->findAll();
+        return $this->json($futureUsers);
     }
 
 
