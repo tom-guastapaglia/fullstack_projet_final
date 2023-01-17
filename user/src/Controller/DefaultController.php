@@ -66,4 +66,11 @@ class DefaultController extends AbstractController
     }
 
 
+    #[Route('api/users', name: 'app_user_api_users', methods: "GET")]
+    public function getUsers(Request $request): Response {
+        $users = $this->manager->getRepository(User::class)->findAll();
+        return $this->json($users);
+    }
+
+
 }
