@@ -38,7 +38,9 @@ const initUrls = (app: Express) => {
    });
 
    app.get(urlApiAdminInfo, (req, res) => {
-      axios
+       const token = req.header("Authorization");
+
+       axios
          .get(endPointServiceUserAdminInfo, {
             headers: {
                Authorization: req.header("Authorization"),
