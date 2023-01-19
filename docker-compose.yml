@@ -11,6 +11,19 @@ services:
     networks:
       - app-network
 
+  car:
+    build: ./car
+    container_name: service-car
+    working_dir: /var/www
+    volumes:
+      - ./car:/var/www
+    ports:
+      - "5001:5001"
+    environment:
+      FLASK_ENV: development
+    networks:
+      - app-network
+
   proxy:
     build: ./proxy
     container_name: service-proxy
@@ -20,7 +33,7 @@ services:
     networks:
       - app-network
     ports:
-      - 8000:8000
+      - "8000:8000"
 
   # MySQL database service
   db:
@@ -50,7 +63,7 @@ services:
   phpmyadmin:
     image: phpmyadmin
     ports:
-      - 8080:80
+      - "8080:80"
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=db
