@@ -35,5 +35,4 @@ class UserApiController extends AbstractController
         return $this->json(in_array($role, $user->getRoles()));
     }
 
-
 }
