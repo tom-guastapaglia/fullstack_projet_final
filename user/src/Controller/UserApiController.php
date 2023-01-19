@@ -36,6 +36,4 @@ class UserApiController extends AbstractController
     }
 
 
-
-
 }
