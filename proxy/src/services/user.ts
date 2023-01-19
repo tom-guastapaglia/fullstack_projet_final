@@ -94,13 +94,13 @@ const initUrls = (app: Express) => {
     * Permet de récupérer tous les utilisateurs
     */
    app.get(urlApiUsersInfo, (req, res) => {
-      axios
-         .get(endPointServiceUsersInfo, {
-         headers: {
-            Authorization: req.header("Authorization"),
-         },
-         })
-         .then((onfulfilled) => res.send(onfulfilled.data));
+       axios
+           .get(endPointServiceUsersInfo, {
+               headers: {
+                   Authorization: req.header("Authorization"),
+               },
+           })
+           .then((onfulfilled) => res.send(onfulfilled.data));
    });
 };
 
