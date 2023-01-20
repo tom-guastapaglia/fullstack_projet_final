@@ -58,6 +58,10 @@ class DefaultController extends AbstractController
 
     }
 
+    #[Route('api/inscription/valide-user/{id}', name: 'app_user_api_inscription_valide_user', methods: "POST")]
+    public function valideUser(Request $request, string $id): Response{
+        return $this->json($id);
+    }
 
     #[Route('api/future-users', name: 'app_user_api_future_users', methods: "GET")]
     public function getFutureUsers(Request $request): Response {

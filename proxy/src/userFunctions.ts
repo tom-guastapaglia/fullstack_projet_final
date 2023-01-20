@@ -4,7 +4,7 @@ import {
     endPointServiceUserInfo,
     endPointServiceUsersInfo,
     endPointServiceUserInscription,
-    endPointServiceUserLogin,
+    endPointServiceUserLogin, endPointServiceUserInscriptionValide,
 } from "./types";
 
 export const connection = (username: string, password: string) => {
@@ -82,7 +82,7 @@ export const validation = (id: string, token: string) => {
    return new Promise((resolve) => {
       axios
          .post(
-            endPointServiceUsersInfo,
+             endPointServiceUserInscriptionValide,
             { id },
             {
                headers: {
