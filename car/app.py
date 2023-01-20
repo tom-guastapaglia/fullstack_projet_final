@@ -1,13 +1,15 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import json
-import models as models
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_crud.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:admin@db:3306/lesson'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-app.run(host='car', port=5001)
+
+app.run(host='localhost', port=5000)
+
+db = SQLAlchemy()
+db.init_app(app)
 
 
 @app.route("/", methods=["GET"])
