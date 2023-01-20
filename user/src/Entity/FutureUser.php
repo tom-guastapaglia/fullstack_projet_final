@@ -107,4 +107,5 @@ class FutureUser
 
         return $this;
     }
+
 }
