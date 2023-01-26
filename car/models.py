@@ -1,21 +1,21 @@
 from flask_sqlalchemy import SQLAlchemy
+from dataclasses import dataclass
 
 db = SQLAlchemy()
 
-class EmployeeModel(db.Model):
-    __tablename__ = "table"
+class CarModel(db.Model):
+    __tablename__ = "car"
 
     id = db.Column(db.Integer, primary_key=True)
-    employee_id = db.Column(db.Integer(),unique = True)
-    name = db.Column(db.String())
-    age = db.Column(db.Integer())
-    position = db.Column(db.String(80))
+    name = db.Column(db.String(250))
+    price = db.Column(db.Float())
+    image = db.Column(db.String(3000))
 
-    def __init__(self, employee_id,name,age,position):
-        self.employee_id = employee_id
+    def __init__(self, name, image, price):
         self.name = name
-        self.age = age
-        self.position = position
+        self.image = image
+        self.price = price
+
 
     def __repr__(self):
-        return f"{self.name}:{self.employee_id}"
+        return f"Car(name={self.name}, image={self.image}, price={self.price})"
