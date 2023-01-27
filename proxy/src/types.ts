@@ -7,7 +7,7 @@ export const urlApiAdminInfo = `${urlApiUser}/admin`;
 export const urlApiCheckRole = `${urlApiUser}/checkRole`;
 export const urlApiFutureUser = `${urlApiUser}/futureUsers`;
 export const urlApiUserInscription = `${urlApiUser}/inscription`;
-export const urlApiUserInscriptionValide = `${urlApiUserInscription}/valideUser/:id`;
+export const urlApiUserInscriptionValide = `${urlApiUser}/inscription/valideUser/:id`;
 export const urlApiUsersInfo = `${urlApiUser}/users`;
 
 

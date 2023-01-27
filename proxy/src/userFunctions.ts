@@ -2,14 +2,12 @@ import axios from "axios";
 import {
     endPointServiceUserCheckRole,
     endPointServiceUserInfo,
-    endPointServiceUsersInfo,
     endPointServiceUserInscription,
     endPointServiceUserLogin,
     endPointServiceUserInscriptionValide,
 } from "./types";
 
 export const connection = (username: string, password: string, res) => {
-   return new Promise((resolve) => {
     axios
         .post(
         endPointServiceUserLogin,
@@ -25,11 +23,9 @@ export const connection = (username: string, password: string, res) => {
         .catch((error) => {
         res.status(error.response.status).json(error.response.data);
         });
-   });
 };
 
 export const checkUserInfo = (token: string, res) => {
-   return new Promise((resolve) => {
        axios
             .get(endPointServiceUserInfo, {
                 headers: {
@@ -42,11 +38,9 @@ export const checkUserInfo = (token: string, res) => {
             .catch((error) => {
                 res.status(error.response.status).json(error.response.data);
             });
-   });
 };
 
 export const checkRole = (role: string, token: string, res) => {
-   return new Promise((resolve) => {
        axios
            .post(
                endPointServiceUserCheckRole,
@@ -63,27 +57,23 @@ export const checkRole = (role: string, token: string, res) => {
             .catch((error) => {
                 res.status(error.response.status).json(error.response.data);
             });
-   });
 };
 
 export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string, res) => {
-   return new Promise((resolve) => {
        axios
            .post(
                endPointServiceUserInscription,
                { email, fisrtName, lastName, phone, country },
-           )
-           .then((resp) => {
+            )
+            .then((resp) => {
                 res.json(resp.data);
             })
             .catch((error) => {
                 res.status(error.response.status).json(error.response.data);
             });
-   })
 }
 
 export const validation = (id: string, data, token: string, res) => {
-   return new Promise((resolve) => {
       axios
             .post(
                 endPointServiceUserInscriptionValide + id,
@@ -101,5 +91,4 @@ export const validation = (id: string, data, token: string, res) => {
             .catch((error) => {
                 res.status(error.response.status).json(error.response.data);
             });
-   })
 }
