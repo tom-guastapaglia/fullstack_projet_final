@@ -7,10 +7,11 @@ import HeaderComponent from "../components/HeaderComponent";
 import {useState} from "react";
 
 
+
 const Login: NextPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
   const connection = () => {
       fetch("/login", {
@@ -36,8 +37,8 @@ const Login: NextPage = () => {
         <div className="container-login">
           <h1>CONNEXION</h1>
           <InputTextComponent label="Identifiant" placeholder="identifiant" onChange={e => setEmail(e.target.value)} />
-          <InputTextComponent label="Mot de passe" placeholder="mot de passe" type="password"  onChange={e => setPassword(e.target.value)} />
-          <ButtonComponent label="Connexion" onclick={connection()}/>
+          <InputTextComponent label="Mot de passe" placeholder="mot de passe" type="password" onChange={e => setPassword(e.target.value)} />
+          <ButtonComponent label="Connexion" onClick={connection} />
         </div>
       </main>
       <FooterComponent />

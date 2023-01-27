@@ -5,42 +5,47 @@ import {
     endPointServiceUsersInfo,
     endPointServiceUserInscription,
     endPointServiceUserLogin,
+    endPointServiceUserInscriptionValide,
 } from "./types";
 
-export const connection = (username: string, password: string) => {
+export const connection = (username: string, password: string, res) => {
    return new Promise((resolve) => {
-       axios
-           .post(
-               endPointServiceUserLogin,
-               { username, password },
-               {
-                   headers: {
-                       "Content-Type": "application/json",
-                   },
-               }
-           )
-           .then((response) => {
-               resolve(response.data);
-           })
-           .catch((error) => {
-               console.log(error);
-           });
+    axios
+        .post(
+        endPointServiceUserLogin,
+        { username, password },
+        {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((resp) => {
+        res.json(resp.data);
+        })
+        .catch((error) => {
+        res.status(error.response.status).json(error.response.data);
+        });
    });
 };
 
-export const checkUserInfo = (token: string) => {
+export const checkUserInfo = (token: string, res) => {
    return new Promise((resolve) => {
        axios
-           .get(endPointServiceUserInfo, {
-               headers: {
-                   Authorization: token,
-               },
-           })
-           .then((response) => resolve(response.data));
+            .get(endPointServiceUserInfo, {
+                headers: {
+                    Authorization: token,
+                },
+            })
+            .then((resp) => {
+             res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
    });
 };
 
-export const checkRole = (role: string, token: string) => {
+export const checkRole = (role: string, token: string, res) => {
    return new Promise((resolve) => {
        axios
            .post(
@@ -51,51 +56,50 @@ export const checkRole = (role: string, token: string) => {
                        "Content-Type": "application/json",
                        Authorization: token,
                    },
-               }
-           )
-           .then((response) => {
-               resolve(response.data);
-           })
-           .catch((error) => {
-               console.log(error);
-           });
+            })
+            .then((resp) => {
+                res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
    });
 };
 
-export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string) => {
+export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string, res) => {
    return new Promise((resolve) => {
        axios
            .post(
                endPointServiceUserInscription,
                { email, fisrtName, lastName, phone, country },
            )
-           .then((response) => {
-               resolve(response.data);
-           })
-           .catch((error) => {
-               console.log(error);
-           });
+           .then((resp) => {
+                res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
    })
 }
 
-export const validation = (id: string, token: string) => {
+export const validation = (id: string, data, token: string, res) => {
    return new Promise((resolve) => {
       axios
-         .post(
-            endPointServiceUsersInfo,
-            { id },
-            {
-               headers: {
-                   "Content-Type": "application/json",
-                   Authorization: token,
-               },
-           }
-         )
-         .then((response) => {
-            resolve(response.data);
-         })
-         .catch((error) => {
-            console.log(error);
-         });
+            .post(
+                endPointServiceUserInscriptionValide + id,
+                { data },
+                {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: token,
+                },
+            }
+            )
+            .then((resp) => {
+                res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
    })
 }

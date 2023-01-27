@@ -4,6 +4,7 @@ import {useState} from "react";
 
 const InscriptionComponent: React.FC = () => {
     const router = useRouter();
+
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -36,7 +37,7 @@ return (
                 </SelectComponent>
             </div>
             <CheckboxComponent label="j'atteste que je possède un permis de conduite valide." type="checkbox" />
-            <ButtonComponent label="Demander mon inscription" onclick={inscription()}/>
+            <ButtonComponent label="Demander mon inscription" onClick={inscription}/>
         </div>
     </div>
 );
