@@ -20,7 +20,7 @@ export const endPointServiceUserAdminInfo = `${urlServerServiceUser}/admin`;
 export const endPointServiceUserCheckRole = `${endPointServiceUserInfo}/check_role`;
 export const endPointServiceFutureUsers = `${urlServerServiceUser}/future-users`;
 export const endPointServiceUserInscription = `${urlServerServiceUser}/inscription`;
-export const endPointServiceUserInscriptionValide = `${endPointServiceUserInscription}/valide-user/:id`;
+export const endPointServiceUserInscriptionValide = `${endPointServiceUserInscription}/valide-user/`;
 export const endPointServiceUsersInfo = `${urlServerServiceUser}/users`;
 
 
