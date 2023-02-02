@@ -2,7 +2,6 @@ import { RadioComponent, SelectComponent, ButtonComponent, InputTextComponent, C
 import type { NextPage } from "next";
 import {useRouter} from "next/router";
 import { useEffect } from "react";
-import { useAuth } from "../hooks/useAuth";
 
 import axios from 'axios'
 import FooterComponent from "../components/FooterComponent";
@@ -13,13 +12,13 @@ import NavAdminComponent from "../components/NavAdminComponent";
 
 const Admin: NextPage = () => {
     const router = useRouter();
-    const { user } = useAuth();
-
-    useEffect(() => {
-        if (!user) {
-            router.push("/login");
-        }
-    });
+    // const { user } = useAuth();
+    //
+    // useEffect(() => {
+    //     if (!user) {
+    //         router.push("/login");
+    //     }
+    // });
 
     return (
         <div>

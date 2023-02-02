@@ -38,7 +38,7 @@ const Login: NextPage = () => {
           <h1>CONNEXION</h1>
           <InputTextComponent label="Identifiant" placeholder="identifiant" onChange={e => setEmail(e.target.value)} />
           <InputTextComponent label="Mot de passe" placeholder="mot de passe" type="password" onChange={e => setPassword(e.target.value)} />
-          <ButtonComponent label="Connexion" onClick={connection} />
+          <ButtonComponent onClick={connection} label="Connexion" />
         </div>
       </main>
       <FooterComponent />
