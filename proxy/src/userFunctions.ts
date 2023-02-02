@@ -5,6 +5,7 @@ import {
     endPointServiceUserInscription,
     endPointServiceUserLogin,
     endPointServiceUserInscriptionValide,
+
 } from "./types";
 
 export const connection = (username: string, password: string, res) => {
@@ -75,20 +76,21 @@ export const inscription = (email: string, fisrtName: string, lastName: string, 
 
 export const validation = (id: string, data, token: string, res) => {
       axios
-            .post(
-                endPointServiceUserInscriptionValide + id,
-                { data },
-                {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: token,
-                },
-            }
-            )
-            .then((resp) => {
-                res.json(resp.data);
-            })
-            .catch((error) => {
-                res.status(error.response.status).json(error.response.data);
-            });
+         .post(
+             endPointServiceUserInscriptionValide,
+            { id },
+            {
+               headers: {
+                   "Content-Type": "application/json",
+                   Authorization: token,
+               },
+           }
+         )
+         .then((response) => {
+            resolve(response.data);
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   })
 }
