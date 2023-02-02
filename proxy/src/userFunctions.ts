@@ -2,46 +2,46 @@ import axios from "axios";
 import {
     endPointServiceUserCheckRole,
     endPointServiceUserInfo,
-    endPointServiceUsersInfo,
     endPointServiceUserInscription,
-    endPointServiceUserLogin, endPointServiceUserInscriptionValide,
+    endPointServiceUserLogin,
+    endPointServiceUserInscriptionValide,
+
 } from "./types";
 
-export const connection = (username: string, password: string) => {
-   return new Promise((resolve) => {
-       axios
-           .post(
-               endPointServiceUserLogin,
-               { username, password },
-               {
-                   headers: {
-                       "Content-Type": "application/json",
-                   },
-               }
-           )
-           .then((response) => {
-               resolve(response.data);
-           })
-           .catch((error) => {
-               console.log(error);
-           });
-   });
+export const connection = (username: string, password: string, res) => {
+    axios
+        .post(
+        endPointServiceUserLogin,
+        { username, password },
+        {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((resp) => {
+        res.json(resp.data);
+        })
+        .catch((error) => {
+        res.status(error.response.status).json(error.response.data);
+        });
 };
 
-export const checkUserInfo = (token: string) => {
-   return new Promise((resolve) => {
+export const checkUserInfo = (token: string, res) => {
        axios
-           .get(endPointServiceUserInfo, {
-               headers: {
-                   Authorization: token,
-               },
-           })
-           .then((response) => resolve(response.data));
-   });
+            .get(endPointServiceUserInfo, {
+                headers: {
+                    Authorization: token,
+                },
+            })
+            .then((resp) => {
+             res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
 };
 
-export const checkRole = (role: string, token: string) => {
-   return new Promise((resolve) => {
+export const checkRole = (role: string, token: string, res) => {
        axios
            .post(
                endPointServiceUserCheckRole,
@@ -51,35 +51,30 @@ export const checkRole = (role: string, token: string) => {
                        "Content-Type": "application/json",
                        Authorization: token,
                    },
-               }
-           )
-           .then((response) => {
-               resolve(response.data);
-           })
-           .catch((error) => {
-               console.log(error);
-           });
-   });
+            })
+            .then((resp) => {
+                res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
 };
 
-export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string) => {
-   return new Promise((resolve) => {
+export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string, res) => {
        axios
            .post(
                endPointServiceUserInscription,
                { email, fisrtName, lastName, phone, country },
-           )
-           .then((response) => {
-               resolve(response.data);
-           })
-           .catch((error) => {
-               console.log(error);
-           });
-   })
+            )
+            .then((resp) => {
+                res.json(resp.data);
+            })
+            .catch((error) => {
+                res.status(error.response.status).json(error.response.data);
+            });
 }
 
-export const validation = (id: string, token: string) => {
-   return new Promise((resolve) => {
+export const validation = (id: string, data, token: string, res) => {
       axios
          .post(
              endPointServiceUserInscriptionValide,

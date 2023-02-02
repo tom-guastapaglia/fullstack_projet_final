@@ -20,21 +20,23 @@ import { checkRole, checkUserInfo, connection, inscription, validation } from ".
 
 const initUrls = (app: Express) => {
    app.get(urlApiUser, (_, res) => {
-      axios.get(endPointServiceUserHello).then((onfulfilled) => {
-         res.send(onfulfilled.data);
+      axios.get(endPointServiceUserHello)
+      .then((resp) => {
+         res.json(resp.data);
+      })
+      .catch((error) => {
+         res.status(error.response.status).json(error.response.data);
       });
    });
 
    app.post(urlApiUserLogin, (req, res) => {
       const body: { username: string; password: string } = req.body;
-      connection(body.username, body.password).then((data) => {
-         res.send(data);
-      });
+      connection(body.username, body.password, res);
    });
 
    app.get(urlApiUserInfo, (req, res) => {
       const token = req.header("Authorization");
-      checkUserInfo(token).then((onfulfilled) => res.send(onfulfilled));
+      checkUserInfo(token, res);
    });
 
    app.get(urlApiAdminInfo, (req, res) => {
@@ -46,15 +48,18 @@ const initUrls = (app: Express) => {
                Authorization: req.header("Authorization"),
             },
          })
-         .then((onfulfilled) => res.send(onfulfilled.data));
+         .then((resp) => {
+            res.json(resp.data);
+         })
+         .catch((error) => {
+            res.status(error.response.status).json(error.response.data);
+         });
    });
 
    app.post(urlApiCheckRole, (req, res) => {
       const body: { role: string } = req.body;
       const token = req.header("Authorization");
-      checkRole(body.role, token).then((onfulfilled) => {
-         res.send(onfulfilled);
-      });
+      checkRole(body.role, token, res);
    });
 
    /**
@@ -67,42 +72,48 @@ const initUrls = (app: Express) => {
             Authorization: req.header("Authorization"),
          },
       })
-      .then((onfulfilled) => res.send(onfulfilled.data));
-  });
+      .then((resp) => {
+         res.json(resp.data);
+      })
+      .catch((error) => {
+         res.status(error.response.status).json(error.response.data);
+      });
+   });
 
    /**
     * Permet d'inscrire l'utilisateur avec les infos qu'il a mit dans le formulaire
     */
-    app.post(urlApiUserInscription, (req, res) => {
+   app.post(urlApiUserInscription, (req, res) => {
       const body: { email: string; fisrtName: string; lastName: string; phone: string; country: string; } = req.body;
-      inscription(body.email, body.fisrtName, body.lastName, body.phone, body.country).then((data) => {
-          res.send(data);
-      });
-    });
+      inscription(body.email, body.fisrtName, body.lastName, body.phone, body.country, res);
+   });
 
    /**
     * Permet de valider les utilisateurs qui se sont inscrits
     */
    app.post(urlApiUserInscriptionValide, (req, res) => {
-      const id = req.params;
+      const id = req.params.id;
+      const data = req.body;
       const token = req.header("Authorization");
-      validation(id.id, token).then((data) => {
-         res.send(data);
-      });
+      validation(id, data, token, res);
    });
-
 
    /**
     * Permet de récupérer tous les utilisateurs
     */
    app.get(urlApiUsersInfo, (req, res) => {
-       axios
-           .get(endPointServiceUsersInfo, {
-               headers: {
-                   Authorization: req.header("Authorization"),
-               },
-           })
-           .then((onfulfilled) => res.send(onfulfilled.data));
+      axios
+         .get(endPointServiceUsersInfo, {
+            headers: {
+               Authorization: req.header("Authorization"),
+            },
+         })
+         .then((resp) => {
+            res.json(resp.data);
+         })
+         .catch((error) => {
+            res.status(error.response.status).json(error.response.data);
+         });
    });
 };
 

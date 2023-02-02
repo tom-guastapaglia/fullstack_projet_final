@@ -76,6 +76,7 @@
     "dist"
   ],
   "dependencies": {
+    "my-lib-ui": "file:.yalc/my-lib-ui",
     "sass": "^1.56.1"
   }
 }

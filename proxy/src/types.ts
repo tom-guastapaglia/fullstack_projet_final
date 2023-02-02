@@ -7,7 +7,7 @@ export const urlApiAdminInfo = `${urlApiUser}/admin`;
 export const urlApiCheckRole = `${urlApiUser}/checkRole`;
 export const urlApiFutureUser = `${urlApiUser}/futureUsers`;
 export const urlApiUserInscription = `${urlApiUser}/inscription`;
-export const urlApiUserInscriptionValide = `${urlApiUserInscription}/valideUser/:id`;
+export const urlApiUserInscriptionValide = `${urlApiUser}/inscription/valideUser/:id`;
 export const urlApiUsersInfo = `${urlApiUser}/users`;
 
 
@@ -20,7 +20,7 @@ export const endPointServiceUserAdminInfo = `${urlServerServiceUser}/admin`;
 export const endPointServiceUserCheckRole = `${endPointServiceUserInfo}/check_role`;
 export const endPointServiceFutureUsers = `${urlServerServiceUser}/future-users`;
 export const endPointServiceUserInscription = `${urlServerServiceUser}/inscription`;
-export const endPointServiceUserInscriptionValide = `${endPointServiceUserInscription}/valide-user/:id`;
+export const endPointServiceUserInscriptionValide = `${endPointServiceUserInscription}/valide-user/`;
 export const endPointServiceUsersInfo = `${urlServerServiceUser}/users`;
 
 
