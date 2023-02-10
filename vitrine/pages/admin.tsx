@@ -1,4 +1,3 @@
-import { RadioComponent, SelectComponent, ButtonComponent, InputTextComponent, CheckboxComponent } from "my-lib-ui";
 import type { NextPage } from "next";
 import {useRouter} from "next/router";
 import { useEffect } from "react";
