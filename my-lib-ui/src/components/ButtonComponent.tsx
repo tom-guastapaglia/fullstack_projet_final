@@ -1,6 +1,6 @@
 import React from "react";
 
-type Props = { 
+type Props = {
   onClick: () => void;
   label: string
 };
