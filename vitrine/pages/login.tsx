@@ -10,6 +10,7 @@ import jwt_decode from 'jwt-decode';
 
 
 const Login: NextPage = () => {
+    const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,10 +27,13 @@ const Login: NextPage = () => {
                 if (decoded.roles.includes("ROLE_ADMIN")) {
                     router.push("/admin");
                 }
+                else {
+                    router.push("/");
+                }
             }
         }).catch(() => {
-            //setError("Identifiant ou mot de passe incorrect");
-            console.log(username, password);
+            setError("Identifiant ou mot de passe incorrect");
+            console.log("Identifiant ou mot de passe incorrect");
         });
     }
 
