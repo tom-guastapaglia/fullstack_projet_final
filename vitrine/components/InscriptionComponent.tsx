@@ -28,11 +28,11 @@ return (
                 <RadioComponent label="un particulier" type="radio" name="type" />
             </div>
             <div className="grid-form">
-                <InputTextComponent label="Nom" onChange={e => setLastName(e.target.value)}/>
-                <InputTextComponent label="Prénom" onChange={e => setFirstName(e.target.value)}/>
-                <InputTextComponent label="E-mail" onChange={e => setEmail(e.target.value)}/>
-                <InputTextComponent label="Numéro de téléphone" onChange={e => setPhone(e.target.value)}/>
-                <SelectComponent label="Nationalité" >
+                <InputTextComponent name="lastname" label="Nom" onChange={e => setLastName(e.target.value)}/>
+                <InputTextComponent name="firstname" label="Prénom" onChange={e => setFirstName(e.target.value)}/>
+                <InputTextComponent name="email" label="E-mail" onChange={e => setEmail(e.target.value)}/>
+                <InputTextComponent name="phoneNumber" label="Numéro de téléphone" onChange={e => setPhone(e.target.value)}/>
+                <SelectComponent name="nationality" label="Nationalité" >
                     <option value="france">France</option>
                 </SelectComponent>
             </div>
