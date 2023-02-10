@@ -4,7 +4,7 @@ import FooterComponent from "../components/FooterComponent";
 import HeadComponent from "../components/HeadComponent";
 import {InputTextComponent, ButtonComponent} from "my-lib-ui";
 import HeaderComponent from "../components/HeaderComponent";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import jwt_decode from 'jwt-decode';
 
@@ -14,6 +14,20 @@ const Login: NextPage = () => {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+     useEffect(() => {
+            if (localStorage.getItem("token")) {
+                const decoded = jwt_decode(localStorage.getItem("token"));
+                if (decoded.roles.includes("ROLE_ADMIN")) {
+                    router.push("/admin");
+                }
+                else {
+                    router.push("/");
+                }
+            }
+     });
+     
+
     const handleSubmit = (event: Event) => {
         event.preventDefault();
         const data = new FormData(event.target as HTMLFormElement);
