@@ -45,7 +45,6 @@ const Home: NextPage = () => {
           <div className="message">{message}</div>
           <form action="" onSubmit={handleSubmit}>
           <InscriptionComponent />
-              <input type="submit"/>
           </form>
       </main>
       <FooterComponent />

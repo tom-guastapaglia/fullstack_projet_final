@@ -18,26 +18,28 @@ const InscriptionComponent: React.FC = () => {
             router.push("/");
         })
     }
+    const login = () => {
+    }
 return (
     <div className="inscription-component">
         <div className="bloc-inscription">
-            <h1>Inscription</h1>
-            <p>Je suis :</p> <br />
-            <div className="form-select">
-                <RadioComponent label="une entreprise" type="radio" name="type" />
-                <RadioComponent label="un particulier" type="radio" name="type" />
-            </div>
-            <div className="grid-form">
-                <InputTextComponent name="lastname" label="Nom" onChange={e => setLastName(e.target.value)}/>
-                <InputTextComponent name="firstname" label="Prénom" onChange={e => setFirstName(e.target.value)}/>
-                <InputTextComponent name="email" label="E-mail" onChange={e => setEmail(e.target.value)}/>
-                <InputTextComponent name="phoneNumber" label="Numéro de téléphone" onChange={e => setPhone(e.target.value)}/>
-                <SelectComponent name="nationality" label="Nationalité" >
-                    <option value="france">France</option>
-                </SelectComponent>
-            </div>
-            <CheckboxComponent label="j'atteste que je possède un permis de conduite valide." type="checkbox" />
-            <ButtonComponent label="Demander mon inscription" onClick={inscription}/>
+                <h1>Inscription</h1>
+                <p>Je suis :</p> <br />
+                <div className="form-select">
+                    <RadioComponent label="une entreprise" type="radio" name="type" />
+                    <RadioComponent label="un particulier" type="radio" name="type" />
+                </div>
+                <div className="grid-form">
+                    <InputTextComponent name="lastname" label="Nom" onChange={e => setLastName(e.target.value)}/>
+                    <InputTextComponent name="firstname" label="Prénom" onChange={e => setFirstName(e.target.value)}/>
+                    <InputTextComponent name="email" label="E-mail" onChange={e => setEmail(e.target.value)}/>
+                    <InputTextComponent name="phoneNumber" label="Numéro de téléphone" onChange={e => setPhone(e.target.value)}/>
+                    <SelectComponent name="nationality" label="Nationalité" >
+                        <option value="france">France</option>
+                    </SelectComponent>
+                </div>
+                <CheckboxComponent label="j'atteste que je possède un permis de conduite valide." type="checkbox" />
+                <ButtonComponent label="Demander mon inscription" onClick={login} />
         </div>
     </div>
 );
