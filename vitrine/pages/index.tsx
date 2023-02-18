@@ -24,7 +24,7 @@ const Home: NextPage = () => {
                 "http://localhost:8000/api/.user/inscription",
                 {
                     lastName: data.get("lastname"),
-                    firstName: data.get("firstname"),
+                    firstName: data.get("firstName"),
                     email: data.get("email"),
                     phone: data.get("phoneNumber"),
                     country: data.get("nationality"),
