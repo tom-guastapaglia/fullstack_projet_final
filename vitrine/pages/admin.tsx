@@ -7,34 +7,21 @@ import FooterComponent from "../components/FooterComponent";
 import HeadComponent from "../components/HeadComponent";
 import HeaderComponent from "../components/HeaderComponent";
 import TabUserComponent from "../components/TabUserComponent";
-import NavAdminComponent from "../components/NavAdminComponent";
+import AdminComponent from "../components/AdminComponent";
 
 const Admin: NextPage = () => {
     const router = useRouter();
-    // const { user } = useAuth();
-    //
-    // useEffect(() => {
-    //     if (!user) {
-    //         router.push("/login");
-    //     }
-    // });
 
     return (
-        <div>
+        <div className="admin-container">
             <HeadComponent />
             <HeaderComponent />
-            <main>
-                <NavAdminComponent label={'user'} />
-                <table>
-                    <TabUserComponent />
-                    <tr>
-                        
-                    </tr>
-                </table>
+            <main className="admin-main">
+                <AdminComponent />
             </main>
             <FooterComponent />
         </div>
-    );
+    );     
 };
 
 export default Admin;

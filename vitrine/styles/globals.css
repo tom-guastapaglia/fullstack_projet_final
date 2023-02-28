@@ -198,4 +198,60 @@ footer p {
 
 }
 
+/*** ADMIN ***/
+.admin-container {
+  background-color: #f5f5f5;
+}
 
+.admin-main {
+  width: 800px;
+  margin: auto;
+}
+
+.admin-title {
+  font-size: 26px;
+  color: #000;
+}
+
+.admin-list {
+  padding: 15px 8px;
+  background-color: #fff;
+}
+
+.admin-list span:nth-child(1) {
+  margin: 0 25px 0 0;
+}
+
+.list-active {
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.list-inactive {
+  color: #808080;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+/*** USER ADMIN ***/
+
+.table-user {
+  width: 100%;
+  text-align: justify;
+  padding: 10px 5px;
+  background-color: #fff;
+  margin: 5px 0 0;
+}
+
+.user-line {
+  padding: 3px 0;
+}
+
+.user-line > th {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.user-status {
+  font-weight: bold !important;
+}
