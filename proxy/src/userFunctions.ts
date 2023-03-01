@@ -87,7 +87,7 @@ export const validation = (id: string, data, token: string, res) => {
             }
         )
         .then((response) => {
-            res.resolve(response.data);
+            res.json(response.data);
         })
         .catch((error) => {
             console.log(error);

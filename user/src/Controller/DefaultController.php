@@ -58,14 +58,14 @@ class DefaultController extends AbstractController
 
     }
 
-    #[Route('api/inscription/valide-user/{id}', name: 'app_user_api_inscription_valide_user', methods: "POST")]
+    #[Route('api/inscription/valide-user/', name: 'app_user_api_inscription_valide_user', methods: "POST")]
     public function valideUser(Request $request): Response{
         $data = json_decode($request->getContent(), true);
         $id = $data["id"];
+        $id = intval($id);
         $futureUser = $this->manager->getRepository(FutureUser::class)->find($id);
         $thisUser = $this->getUser();
         $thisUserRole = $thisUser->getRoles();
-
 
         #1. Check if admin
         if (in_array("ROLE_ADMIN", $thisUserRole)){
@@ -79,14 +79,16 @@ class DefaultController extends AbstractController
             $newUser->setFutureUser($futureUser);
             $futureUser->setInscriptionValidee(true);
 
-            #4. Persist and flush*/
+            #4. Persist and flush
             $this->manager->persist($newUser);
             $this->manager->persist($futureUser);
             $this->manager->flush();
         }
+        else{
+            return $this->json("Vous n'avez pas les droits pour valider une inscription", Response::HTTP_FORBIDDEN);
+        }
 
-
-        return $this->json("Inscription validée");
+        return $this->json($futureUser);
     }
 
     #[Route('api/future-users', name: 'app_user_api_future_users', methods: "GET")]

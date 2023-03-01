@@ -6,7 +6,6 @@ type Props = {
 };
 
 const ButtonComponent: React.FC<Props> = (props) => {
-  const { onClick } = props;
   const { label } = props;
   const {onClick} = props;
   return (
