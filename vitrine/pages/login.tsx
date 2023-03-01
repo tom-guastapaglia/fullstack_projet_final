@@ -26,7 +26,6 @@ const Login: NextPage = () => {
                 }
             }
      });
-
     const login = () => {
         axios.post("http://localhost:8000/api/.user/login", {username, password}).then((response) => {
             if (response.data.token) {
@@ -45,6 +44,7 @@ const Login: NextPage = () => {
             console.log("Identifiant ou mot de passe incorrect");
         });
     }
+
 
     return (
         <div className="login-page">
