@@ -44,7 +44,7 @@ class DefaultController extends AbstractController
         $data = json_decode($request->getContent(), true);
         $futureUser = new FutureUser();
         $futureUser->setNom($data["lastName"])
-            ->setPrenom($data["lastName"])
+            ->setPrenom($data["firstName"])
             ->setTel($data["phone"])
             ->setNationalite($data["country"])
             ->setEmail($data["email"])

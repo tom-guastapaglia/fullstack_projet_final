@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import {useRouter} from "next/router";
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 
 import axios from 'axios'
 import FooterComponent from "../components/FooterComponent";

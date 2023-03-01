@@ -60,11 +60,11 @@ export const checkRole = (role: string, token: string, res) => {
         });
 };
 
-export const inscription = (email: string, fisrtName: string, lastName: string, phone: string, country: string, res) => {
+export const inscription = (email: string, firstName: string, lastName: string, phone: string, country: string, res) => {
     axios
         .post(
             endPointServiceUserInscription,
-            {email, fisrtName, lastName, phone, country},
+            {email, firstName, lastName, phone, country},
         )
         .then((resp) => {
             res.json(resp.data);

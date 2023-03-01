@@ -84,8 +84,8 @@ const initUrls = (app: Express) => {
     * Permet d'inscrire l'utilisateur avec les infos qu'il a mit dans le formulaire
     */
    app.post(urlApiUserInscription, (req, res) => {
-      const body: { email: string; fisrtName: string; lastName: string; phone: string; country: string; } = req.body;
-      inscription(body.email, body.fisrtName, body.lastName, body.phone, body.country, res);
+      const body: { email: string; firstName: string; lastName: string; phone: string; country: string; } = req.body;
+      inscription(body.email, body.firstName, body.lastName, body.phone, body.country, res);
    });
 
    /**
