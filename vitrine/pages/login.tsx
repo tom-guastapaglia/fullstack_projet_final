@@ -51,6 +51,9 @@ const Login: NextPage = () => {
         });
     }
 
+    const login = () => {
+    }
+
     return (
         <div className="login-page">
             <HeadComponent/>
@@ -71,7 +74,7 @@ const Login: NextPage = () => {
                         <InputTextComponent label="Mot de passe" placeholder="mot de passe" type="password"
                                             onChange={e => setPassword(e.target.value)}
                                             name="password"/>
-                        <input type="submit" value="Se connecter"/>
+                        <ButtonComponent label="Se connecter" onClick={login} />
                     </form>
                 </div>
             </main>
