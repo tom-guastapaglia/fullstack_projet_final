@@ -16,36 +16,13 @@ const Home: NextPage = () => {
     const [disabled, setDisabled] = useState(true);
     const router = useRouter();
 
-    const handleSubmit = (e: any) => {
-        e.preventDefault();
-        let data = new FormData(e.target);
-        axios
-            .post(
-                "http://localhost:8000/api/.user/inscription",
-                {
-                    lastName: data.get("lastname"),
-                    firstName: data.get("firstName"),
-                    email: data.get("email"),
-                    phone: data.get("phoneNumber"),
-                    country: data.get("nationality"),
-                }
-            ).then((res) => {
-            router.push("/");
-            setMessage("Votre inscription a été effectuée avec succès");
-        })
-    };
-
-
     return (
     <div>
       <HeadComponent />
       <HeaderComponent />
       <main>
         <HeroComponent />
-          <div className="message">{message}</div>
-          <form action="" onSubmit={handleSubmit}>
           <InscriptionComponent />
-          </form>
       </main>
       <FooterComponent />
     </div>
