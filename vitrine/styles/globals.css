@@ -235,7 +235,7 @@ footer p {
 
 /*** USER ADMIN ***/
 
-.table-user {
+.table-user, .table-car {
   width: 100%;
   text-align: justify;
   padding: 10px 5px;
@@ -243,11 +243,11 @@ footer p {
   margin: 5px 0 0;
 }
 
-.user-line {
+.user-line, .car-line {
   padding: 3px 0;
 }
 
-.user-line > th {
+.user-line > th, .car-line > th {
   font-size: 14px;
   font-weight: 200;
 }
