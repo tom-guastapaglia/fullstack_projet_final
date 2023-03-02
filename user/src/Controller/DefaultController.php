@@ -83,12 +83,13 @@ class DefaultController extends AbstractController
             $this->manager->persist($newUser);
             $this->manager->persist($futureUser);
             $this->manager->flush();
-        }
-        else{
-            return $this->json("Vous n'avez pas les droits pour valider une inscription", Response::HTTP_FORBIDDEN);
-        }
 
-        return $this->json($futureUser);
+            return $this->json($futureUser);
+
+        }
+        return $this->json("Vous n'avez pas les droits pour valider une inscription", Response::HTTP_FORBIDDEN);
+
+
     }
 
     #[Route('api/future-users', name: 'app_user_api_future_users', methods: "GET")]
