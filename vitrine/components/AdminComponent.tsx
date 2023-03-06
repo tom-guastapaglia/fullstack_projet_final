@@ -22,8 +22,9 @@ const AdminComponent = () => {
                 <span className={listActive === "users" ? "list-active" : "list-inactive" } onClick={() => setActive("users")}>Liste des utilisateurs inscrits</span>
                 <span className={listActive === "cars" ? "list-active" : "list-inactive" } onClick={() => setActive("cars")}>Liste des véhicules</span>
             </div>
-            {listActive === "users" ? <UsersComponent /> : <CarsComponent />}
+            {listActive === "users" ? <UsersComponent /> : <CarsComponent /> }
         </div>
+
     );
 };
 
