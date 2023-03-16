@@ -1,3 +1,11 @@
+# Rendu
+## Lien Project GitHub
+https://github.com/users/tom-guastapaglia/projects/2/views/1
+## Lien GitHub
+https://github.com/tom-guastapaglia/fullstack_projet_final/
+## Rendus
+- Vidéo "Guastapaglia | Ferrali" => présentation du projet
+
 # Installation
 ```
 cd proxy
