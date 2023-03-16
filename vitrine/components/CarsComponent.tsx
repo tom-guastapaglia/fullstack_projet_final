@@ -87,8 +87,7 @@ const CarsComponent = () => {
                 console.log(error);
             });
     }
-
-
+    
     return (
         <div>
             <table className={"table-car"}>
