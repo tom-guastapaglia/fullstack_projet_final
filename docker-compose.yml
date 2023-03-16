@@ -48,6 +48,18 @@ services:
     networks:
       - app-network
 
+
+  car:
+    build: ./car
+    container_name: service-car
+    working_dir: /var/www
+    volumes:
+      - ./car:/var/www
+    environment:
+      FLASK_ENV: development
+    networks:
+      - app-network
+
   phpmyadmin:
     image: phpmyadmin
     ports:

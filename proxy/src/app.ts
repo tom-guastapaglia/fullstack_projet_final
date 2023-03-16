@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 
 import checkToken from "./middlewares/checkToken";
 import userService from "./services/user";
+import carService from "./services/car";
 
 import { urlApi } from "./types";
 const app = express();
@@ -22,3 +23,4 @@ app.listen(port, () => {
 });
 
 userService.initUrls(app);
+carService.carApi(app);
