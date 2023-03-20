@@ -1,0 +1,41 @@
+{
+  "name": "my-lib-ui",
+  "version": "1.0.0",
+  "description": "Made with create-react-library",
+  "author": "joazco",
+  "license": "MIT",
+  "repository": "joazco/my-lib-ui",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.tsx",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "test": "echo 'test'",
+    "test:build": "run-s build",
+    "test:lint": "echo 'lint'",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "predeploy": "cd example && npm install && npm run build",
+    "deploy": "gh-pages -d example/build",
+    "yalc:build": "npm run sass:build && npm run build &&  yalc publish --private",
+    "sass:build": "sass src/index.css dist/index.css",
+    "sass:watch": "sass -w src",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "my-lib-ui": "file:.yalc/my-lib-ui",
+    "sass": "^1.56.1"
+  },
+  "yalcSig": "1ecc6bb4d13f4de92c79c5cf0dfd48ec"
+}
